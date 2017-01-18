@@ -1,0 +1,39 @@
+<div class="row">
+  <h3>Request a Quote</h3>
+  <form class="form-horizontal" action="/quotes" method="post">
+    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+    <div class="form-group">
+      <label for="name" class="col-sm-2 control-label">Contact Name:</label>
+      <div class="col-sm-10">
+      <input type="text" name="quote[name]" id="name" class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="company" class="col-sm-2 control-label">Company:</label>
+      <div class="col-sm-10">
+      <input type="text" name="quote[company]" id="company" class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="email" class="col-sm-2 control-label">Email:</label>
+      <div class="col-sm-10">
+      <input type="text" name="quote[email]" id="email" class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="phone" class="col-sm-2 control-label">Phone Number:</label>
+      <div class="col-sm-10">
+      <input type="text" name="quote[phone]" id="phone" class="form-control">
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="description" class="col-sm-2 control-label">Project Description:</label>
+      <div class="col-sm-10">
+      <textarea name="quote[description]" rows="8" class = "form-control" id="description"></textarea>
+        </div>
+    </div>
+    <button type="submit" name="create" class="btn btn-primary">Submit Quote</button>
+
+  </form>
+
+</div>

@@ -1,0 +1,3 @@
+class QuoteMailer < ApplicationMailer
+
+end

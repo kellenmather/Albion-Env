@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Albion</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container">
+      <p class="bg-success">
+        <%=flash[:notice] %>
+      </p>
+      <% if flash[:errors] %>
+        <%flash[:errors].each do |error| %>
+        <p class="bg-danger">
+        <%= error %>
+        </p>
+        <% end %>
+        <%end%>
+    <%= yield %>
+    </div>
+  </body>
+</html>

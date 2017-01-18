@@ -1,0 +1,68 @@
+<h4>Client information</h4>
+<div class="row">
+
+
+<table class="table">
+  <tbody>
+    <tr>
+      <td>
+        Contact Name:
+      </td>
+      <td>
+        <%= @user.contact_name %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Company:
+      </td>
+      <td>
+        <%= @user.company %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Email:
+      </td>
+      <td>
+        <%= @user.email %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Phone:
+      </td>
+      <td>
+        <%= @user.phone %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Address:
+      </td>
+      <td>
+        <%= @user.company_address %> <%=@user.city%> <%= @user.state.name%>, <%= @user.zipcode%>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h3>Results</h3>
+<%= form_for Result.new, html: { multipart: true } do |f| %>
+	<%= f.hidden_field :user_id, :value => @user.id %>
+  <div class="field">
+	<%= f.label :file %><br>
+	<%= f.file_field :attachment %>
+  </div>
+  <div class="actions">
+	<%= f.submit %>
+  </div>
+<% end %>
+</div>
+
+<div class="row">
+	<% @user.results.each do |result| %>
+		<%= link_to "Download Result", result.attachment.url%>
+		<p><%= result.created_at.strftime("%m/%d/%Y")%> </p>
+	<% end %>
+</div>
+<%= link_to "Log Out", session_path(current_user), method: :delete %>

@@ -1,0 +1,13 @@
+<div class="row">
+  <h3>Request a Quote</h3>
+  <%= simple_form_for @quote, :html => {:class => "form-horizontal"}  do |f| %>
+    <%= f.input :contact_name, :required => true %>
+    <%= f.input :company %>
+    <%= f.input :email, :required => true %>
+    <%= f.input :phone_number, :required => true %>
+    <%= f.input :quote_description, as: :text, :required => true %>
+
+    <%= f.button :submit, 'Submit Quote', :class => 'btn btn-primary' %>
+
+<% end %>
+</div>
